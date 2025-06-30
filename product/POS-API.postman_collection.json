@@ -1,0 +1,220 @@
+{
+  "info": {
+    "name": "POS System API",
+    "description": "Postman collection for Spring Boot POS backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/categories", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "categories"] }
+          }
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/categories/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "categories", "1"] }
+          }
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Electronics\",\n  \"description\": \"Electronic devices and accessories\"\n}"
+            },
+            "url": { "raw": "http://localhost:8080/api/v1/categories", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "categories"] }
+          }
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Electronics\",\n  \"description\": \"Updated description\"\n}"
+            },
+            "url": { "raw": "http://localhost:8080/api/v1/categories/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "categories", "1"] }
+          }
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/categories/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "categories", "1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/products", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products"] }
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/products/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products", "1"] }
+          }
+        },
+        {
+          "name": "Get Product by Barcode",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/products/barcode/1234567890123", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products", "barcode", "1234567890123"] }
+          }
+        },
+        {
+          "name": "Get Products by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/products/category/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products", "category", "1"] }
+          }
+        },
+        {
+          "name": "Search Products by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/products/search?name=phone", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products", "search"], "query": [{ "key": "name", "value": "phone" }] }
+          }
+        },
+        {
+          "name": "Get Low Stock Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/products/low-stock?threshold=10", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products", "low-stock"], "query": [{ "key": "threshold", "value": "10" }] }
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"iPhone 15\",\n  \"description\": \"Latest iPhone model\",\n  \"price\": 999.99,\n  \"stockQuantity\": 50,\n  \"categoryId\": 1,\n  \"barcode\": \"1234567890123\"\n}"
+            },
+            "url": { "raw": "http://localhost:8080/api/v1/products", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products"] }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"iPhone 15 Pro\",\n  \"description\": \"Updated description\",\n  \"price\": 1099.99,\n  \"stockQuantity\": 45,\n  \"categoryId\": 1,\n  \"barcode\": \"1234567890124\"\n}"
+            },
+            "url": { "raw": "http://localhost:8080/api/v1/products/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products", "1"] }
+          }
+        },
+        {
+          "name": "Update Stock",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/products/1/stock?quantity=10", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products", "1", "stock"], "query": [{ "key": "quantity", "value": "10" }] }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/products/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "products", "1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sales",
+      "item": [
+        {
+          "name": "Get All Sales (Paginated)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/sales?page=0&size=10", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "sales"], "query": [{ "key": "page", "value": "0" }, { "key": "size", "value": "10" }] }
+          }
+        },
+        {
+          "name": "Get Sale by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/sales/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "sales", "1"] }
+          }
+        },
+        {
+          "name": "Get Sales by Customer Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/sales/customer?customerName=John", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "sales", "customer"], "query": [{ "key": "customerName", "value": "John" }] }
+          }
+        },
+        {
+          "name": "Get Sales by Date Range",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/sales/date-range?startDate=2024-01-01T00:00:00&endDate=2024-12-31T23:59:59", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "sales", "date-range"], "query": [{ "key": "startDate", "value": "2024-01-01T00:00:00" }, { "key": "endDate", "value": "2024-12-31T23:59:59" }] }
+          }
+        },
+        {
+          "name": "Get Sales by Payment Method",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/sales/payment-method?paymentMethod=CASH", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "sales", "payment-method"], "query": [{ "key": "paymentMethod", "value": "CASH" }] }
+          }
+        },
+        {
+          "name": "Create Sale",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerName\": \"John Doe\",\n  \"paymentMethod\": \"CASH\",\n  \"saleItems\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2,\n      \"unitPrice\": 999.99,\n      \"totalPrice\": 1999.98\n    }\n  ]\n}"
+            },
+            "url": { "raw": "http://localhost:8080/api/v1/sales", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "sales"] }
+          }
+        },
+        {
+          "name": "Cancel Sale",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": { "raw": "http://localhost:8080/api/v1/sales/1/cancel", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "sales", "1", "cancel"] }
+          }
+        }
+      ]
+    }
+  ]
+} 
